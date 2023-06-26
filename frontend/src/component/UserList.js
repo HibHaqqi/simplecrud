@@ -38,7 +38,7 @@ const getUsers = async()=>{
                <td>{user.gender}</td>
                <td>
                 <button className='button is-small is-info'>Edit </button>
-                <button className='button is-small is-denger'>Delete </button>
+                <button className='button is-small is-danger'>Delete </button>
                </td>
              </tr>
 

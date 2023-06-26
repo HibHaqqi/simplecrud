@@ -1,6 +1,6 @@
-import React, {useState} from 'react'
-import axios from 'axios'
-import{useNavigate} from "react-router-dom"
+import React, {useState} from 'react';
+import axios from 'axios';
+import{useNavigate} from "react-router-dom";
 
 const AddUser = () => {
 const [name, setName] = useState("");
@@ -12,11 +12,11 @@ const navigate =useNavigate();
 const saveUser =async (e) =>{
     e.preventDefault();
     try {
-        await axios.post("http://localhost:5000/users",(
+        await axios.post("http://localhost:5000/users",{
             name,
             email,
             gender
-        ));
+    });
         navigate("/");
     } catch (error) {
         console.log(error);
@@ -28,7 +28,7 @@ return (
         <div className="column is-half">
             <form onSubmit={saveUser}>
                 <div className="field">
-                    <label  className="label">Name</label>
+                    <label  className="name">Name</label>
                     <div className="control">
                         <input 
                         type="text" 
@@ -36,10 +36,11 @@ return (
                         value={name} 
                         onChange ={(e) => setName(e.target.value)}
                         placeholder="name" />
+                        
                     </div>
                 </div>
                 <div className="field">
-                    <label  className="label">Email</label>
+                    <label  className="email">Email</label>
                     <div className="control">
                         <input 
                         type="text" className="input" 
@@ -50,7 +51,7 @@ return (
                 </div>
                 
                 <div className="field">
-                    <label  className="label">Gender</label>
+                    <label  className="gender">Gender</label>
                     <div className="control">
                         <div className="select is-fullwidth">
                             <select 
